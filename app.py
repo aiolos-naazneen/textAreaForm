@@ -10,11 +10,18 @@ def success(name):
 
 def makeAPICall():
     import json
-    url = "https://jsonplaceholder.typicode.com/todos/5"
-    with urlopen(url) as response:
-        body = response.read()
-    todo_item = json.loads(body)
-    return todo_item
+    # url = "https://jsonplaceholder.typicode.com/todos/5"
+    # with urlopen(url) as response:
+    #     body = response.read()
+    # todo_item = json.loads(body)
+    json_body = {
+        'title': "Buy Donuts",
+        'completed': False,
+        'userId': 1,
+        'targetDate': '2020-01-01',
+        'status': 'active'
+    }
+    return json_body
 
 
 @app.route('/', methods=['POST', 'GET'])
